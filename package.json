@@ -46,9 +46,11 @@
         [
           "@electron-forge/plugin-webpack",
           {
+            "devContentSecurityPolicy": "script-src 'self' 'unsafe-inline' ",
             "mainConfig": "./webpack.main.config.js",
             "renderer": {
               "config": "./webpack.renderer.config.js",
+              "nodeIntegration": true,
               "entryPoints": [
                 {
                   "html": "./src/index.html",
