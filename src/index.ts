@@ -1,4 +1,6 @@
 import { app, BrowserWindow } from "electron";
+import * as remoteMain from "@electron/remote/main";
+remoteMain.initialize();
 declare const MAIN_WINDOW_WEBPACK_ENTRY: never;
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -10,9 +12,15 @@ if (require("electron-squirrel-startup")) {
 const createWindow = (): void => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    height: 600,
-    width: 800,
+    width: 625,
+    height: 556,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    },
   });
+
+  remoteMain.enable(mainWindow.webContents);
 
   // and load the index.html of the app.
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
