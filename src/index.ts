@@ -14,6 +14,8 @@ const createWindow = (): void => {
   const mainWindow = new BrowserWindow({
     width: 625,
     height: 556,
+    icon: "../assets/icons/icon.png",
+    resizable: false,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -32,7 +34,10 @@ const createWindow = (): void => {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on("ready", createWindow);
+app.on("ready", () => {
+  createWindow();
+  // Todo: Create Tray icon
+});
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
