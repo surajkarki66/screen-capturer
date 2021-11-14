@@ -18,6 +18,11 @@
   },
   "license": "GPL-3.0",
   "config": {
+    "repository": {
+      "owner": "me",
+      "name": "screen-capturer"
+    },
+    "prerelease": true,
     "forge": {
       "packagerConfig": {},
       "makers": [
@@ -35,7 +40,10 @@
         },
         {
           "name": "@electron-forge/maker-deb",
-          "config": {}
+          "config": { "options": {
+            "maintainer": "Suraj Karki",
+            "homepage": "https://github.com/surajkarki66/screen-capturer"
+          }}
         },
         {
           "name": "@electron-forge/maker-rpm",
