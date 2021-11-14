@@ -77,6 +77,7 @@ async function selectSource(source: Electron.DesktopCapturerSource) {
   };
 
   // Create a Stream
+  // TODO: Solve below TypeError
   const stream = await navigator.mediaDevices.getUserMedia(constraints);
 
   // Preview the source in a video element
